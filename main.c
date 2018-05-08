@@ -7,7 +7,7 @@
 // CONFIG section
 
 // LED connection
-#define LED         PORTB0
+#define LED         PORTB
 // UART baud speed
 #define BD          9600
 // LED blink frequency
@@ -55,10 +55,10 @@
 
 int main(void)
 {
-    // PORTB0 LED output
-    DDRB  |= (1 << LED);
-    // LED ON
-    PORTB |= (1 << LED);
+    // PORTB0 all output
+    DDRB   = 0xFF;
+    // LED ON/OFF
+    LED    = 0x55;
     // UART Baud rate
     UBRR0L = UBRR;
     // UART format 8N1
@@ -70,8 +70,8 @@ int main(void)
     {
         // wait
         _delay_ms(SLEEP);
-        // toggle LED
-        PORTB ^= (1 << LED);
+        // toggle all pins / LED
+        LED ^= 0xFF;
         // Tx char U
         UDR0 = 'U';
     }
