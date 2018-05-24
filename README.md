@@ -41,6 +41,7 @@ The "Hello World" mini-app consists of two files:
 ### Step 4 - compile
 
 Build / Rebuild
+
 '''
 Process terminated with status 0 (0 minute(s), 0 second(s))
 0 error(s), 0 warning(s) (0 minute(s), 0 second(s))
@@ -60,20 +61,25 @@ https://github.com/akrasuski1/usbasp-uart
 
 ### Step 6 - program the code and fuses
 
-avrdude -p m328p -P usb -c usbasp-clone -U flash:w:blink.hex -U lfuse:w:blink.lfs
+	avrdude -p m328p -P usb -c usbasp-clone -U flash:w:blink.hex -U lfuse:w:blink.lfs
 
 
 Tools / Configure tools / Add 
-Name: Flash
-Executable: avrdude
-Parameters: -p m328p -P usb -c usbasp-clone -U flash:w:${TARGET_OUTPUT_BASENAME}.hex
-Working dir: ${PROJECT_DIR}/${TARGET_OUTPUT_DIR}
+
+	Name: Flash
+	Executable: avrdude
+	Parameters: -p m328p -P usb -c usbasp-clone -U flash:w:${TARGET_OUTPUT_BASENAME}.hex
+	Working dir: ${PROJECT_DIR}/${TARGET_OUTPUT_DIR}
 
 Tools / Configure tools / Add 
-Name: Fuses
-Executable: avrdude
-Parameters:-p m328p -P usb -c usbasp-clone -U lfuse:w:{$TARGETOUTPUTBASENAME}.lfs -U hfuse:w:{$TARGETOUTPUTBASENAME}.hfs -U efuse:w:{$TARGETOUTPUTBASENAME}.efs
-Working dir: ${PROJECT_DIR}/${TARGET_OUTPUT_DIR}
+
+	Name: Fuses
+	Executable: avrdude
+	Parameters:-p m328p -P usb -c usbasp-clone 
+		-U lfuse:w:{$TARGETOUTPUTBASENAME}.lfs 
+		-U hfuse:w:{$TARGETOUTPUTBASENAME}.hfs 
+		-U efuse:w:{$TARGETOUTPUTBASENAME}.efs
+	Working dir: ${PROJECT_DIR}/${TARGET_OUTPUT_DIR}
 
 
 ### Step 7 - communication
