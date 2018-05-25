@@ -35,62 +35,84 @@ The Code::Blocks version 16.10 32-bit version:
 
 The "Hello World" mini-app consists of two files:
 
-    * main.c  ... executable code
-    * fuses.c ... configuration settings
+	* main.c  ... executable code
+    	* fuses.c ... configuration settings
 
 ### Step 4 - compile
 
-Build / Rebuild
+Build / Rebuild should result in 0 errors and 0 warnings
 
-'''
-Process terminated with status 0 (0 minute(s), 0 second(s))
-0 error(s), 0 warning(s) (0 minute(s), 0 second(s))
-'''
+	Process terminated with status 0 (0 minute(s), 0 second(s))
+	0 error(s), 0 warning(s) (0 minute(s), 0 second(s))
 
 ### Step 5 - AVR prototype
 
 Buils a simple atmega328 breadboard prootype:
-* Vcc, GND
-* LED on pin 14 (Port B Bit 0 = PortB0)
-* USB ASP
 
+	* Vcc, GND
+	* LED on any pin like pin 14 (Port B Bit 0 = PortB0)
+	* USB ASP
+
+picture 
+	
 ### Step 5 - programmer
 
-USB ASP clone, consider upgrading firmware
+USB ASP clone, consider upgrading the firmware with UART modality
+
 https://github.com/akrasuski1/usbasp-uart
+
+To update use the second USBASP and close jumper JP2 on module to be updated.
+
+pictute
 
 ### Step 6 - program the code and fuses
 
+From command line:
+
 	avrdude -p m328p -P usb -c usbasp-clone -U flash:w:blink.hex -U lfuse:w:blink.lfs
 
+screenshot
 
-Tools / Configure tools / Add 
+Code::Blocks Tools / Configure tools / Add 
 
 	Name: Flash
 	Executable: avrdude
 	Parameters: -p m328p -P usb -c usbasp-clone -U flash:w:${TARGET_OUTPUT_BASENAME}.hex
 	Working dir: ${PROJECT_DIR}/${TARGET_OUTPUT_DIR}
 
-Tools / Configure tools / Add 
+screenshot
+
+Code::Blocks Tools / Configure tools / Add 
 
 	Name: Fuses
 	Executable: avrdude
-	Parameters:-p m328p -P usb -c usbasp-clone 
-		-U lfuse:w:{$TARGETOUTPUTBASENAME}.lfs 
-		-U hfuse:w:{$TARGETOUTPUTBASENAME}.hfs 
-		-U efuse:w:{$TARGETOUTPUTBASENAME}.efs
+	Parameters: -p m328p -P usb -c usbasp-clone \ 
+			-U lfuse:w:{$TARGETOUTPUTBASENAME}.lfs \ 
+			-U hfuse:w:{$TARGETOUTPUTBASENAME}.hfs \ 
+			-U efuse:w:{$TARGETOUTPUTBASENAME}.efs
 	Working dir: ${PROJECT_DIR}/${TARGET_OUTPUT_DIR}
 
+screenshot
 
 ### Step 7 - communication
 
-https://github.com/akrasuski1/usbasp-uart
+Either use [USBASP with UART modality](https://github.com/akrasuski1/usbasp-uart)
 
-./usbasp_uart 
+and execute: 
+	
+	./usbasp_uart 
+
+picture
+
+or connect any serial port RX pin 3 (TxD) and configure 9600-8N1
 
 should echo stream of U characters
 
+picture
+
+screenshot
+
 ### Done
 
-Congratulation ! Now you just have a working AVR-IDE.
+Congratulations ! Now you just have a working AVR-IDE.
 
