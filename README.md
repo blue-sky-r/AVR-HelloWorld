@@ -18,10 +18,10 @@ To configure the parts and verify their functionality we need simple app like "H
 
 The following example is demonstrating linux AVR IDE setup:
 
-* GUI Editor ... Code::Blocks
+* GUI Editor ... Code::Blocks IDE
 * compiler   ... gcc-avr, avr-libc
-* programmer ... avrdude, USB ASP clone
-* terminal   ... minicom / usbasp_uart
+* programmer ... avrdude, USB ASP clone, 9-10 male-male cable (Du-Pont)
+* terminal   ... minicom, cu / usbasp_uart
 
 ### Step 1 - compiler
 
