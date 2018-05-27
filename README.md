@@ -63,7 +63,7 @@ https://github.com/akrasuski1/usbasp-uart
 
 To update use the second USBASP and close jumper JP2 on module to be updated.
 
-pictute
+![USBASP FW upgrade](images/usbasp-fw-upgrade.jpg)
 
 ### Step 6 - program the code and fuses
 
