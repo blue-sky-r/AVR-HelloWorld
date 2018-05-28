@@ -50,18 +50,19 @@ Build / Rebuild should result in 0 errors and 0 warnings
 Buils a simple atmega328 breadboard prootype:
 
 	* Vcc, GND
-	* LED on any pin like pin 14 (Port B Bit 0 = PortB0)
+        * resistor on RESET pin 1 and Vcc
+	* LED on any pin like pin 14 (Port B Bit 0 = PortB0) and resistor
 	* USB ASP
 
-picture 
+![Bredboard](images/breadvoard.jpg) ![Bredboard](images/breadvoard-angle.jpg)
 	
 ### Step 5 - programmer
 
-USB ASP clone, consider upgrading the firmware with UART modality
+USB ASP clone - consider upgrading the firmware with UART modality [USBasp UART](https://github.com/akrasuski1/usbasp-uart)
 
-https://github.com/akrasuski1/usbasp-uart
-
-To update use the second USBASP and close jumper JP2 on module to be updated.
+To update USBASP firmware use the second USBASP module. You can buy USBASP clones on ebay for a few bucks so get two pieces.
+Connect both modules via flat cable and then close jumper JP2 on the module to be updated. 
+The module without JP2 jumper goes to the PC USB port and then run update.
 
 ![USBASP FW upgrade](images/usbasp-fw-upgrade.jpg)
 
