@@ -36,7 +36,7 @@ The Code::Blocks version 16.10 32-bit version:
 The "Hello World" mini-app consists of two files:
 
 	* main.c  ... executable code
-    	* fuses.c ... configuration settings
+	* fuses.c ... configuration settings
 
 ### Step 4 - compile
 
@@ -50,11 +50,13 @@ Build / Rebuild should result in 0 errors and 0 warnings
 Buils a simple atmega328 breadboard prootype:
 
 	* Vcc, GND
-        * resistor on RESET pin 1 and Vcc
+	* resistor on RESET pin 1 and Vcc
 	* LED on any pin like pin 14 (Port B Bit 0 = PortB0) and resistor
 	* USB ASP
 
-![Bredboard](images/breadvoard.jpg) ![Bredboard](images/breadvoard-angle.jpg)
+![Bredboard](images/breadboard.jpg) 
+
+![Bredboard](images/breadboard-angle.jpg)
 	
 ### Step 5 - programmer
 
