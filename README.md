@@ -57,6 +57,10 @@ Buils a simple atmega328 breadboard prootype:
 ![Bredboard](images/breadboard.jpg) 
 
 ![Bredboard](images/breadboard-angle.jpg)
+
+![USBASP cable](images/cable-a.jpg) 
+
+![USBASP cable](images/cable-b.jpg) 
 	
 ### Step 5 - programmer
 
