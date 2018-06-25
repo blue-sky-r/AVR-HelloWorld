@@ -47,12 +47,12 @@ Build / Rebuild should result in 0 errors and 0 warnings
 
 ### Step 5 - AVR prototype
 
-Buils a simple atmega328 breadboard prootype:
+Buils a simple atmega328 breadboard prototype:
 
-	* Vcc, GND
-	* resistor on RESET pin 1 and Vcc
-	* LED on any pin like pin 14 (Port B Bit 0 = PortB0) and resistor
-	* USB ASP
+	* Vcc, GND from USBasp
+	* resistor on RESET [ pin 1 and Vcc ] value is not critical 10k-100k
+	* LED on any pin like pin 14 (Port B Bit 0 = PortB0) and resistor 10k-1k to GND
+	* USBasp [ will supply Vcc ]
 
 ![Bredboard](images/breadboard.jpg) 
 
@@ -64,11 +64,11 @@ Buils a simple atmega328 breadboard prootype:
 	
 ### Step 5 - programmer
 
-USB ASP clone - consider upgrading the firmware with UART modality [USBasp UART](https://github.com/akrasuski1/usbasp-uart)
+USBasp clone - consider upgrading the firmware with UART modality [USBasp UART](https://github.com/akrasuski1/usbasp-uart)
 
-To update USBASP firmware use the second USBASP module. You can buy USBASP clones on ebay for a few bucks so get two pieces.
+To update USBasp firmware use the second USBasp module. You can buy USBasp clones on ebay for a few bucks so get two pieces.
 Connect both modules via flat cable and then close jumper JP2 on the module to be updated. 
-The module without JP2 jumper goes to the PC USB port and then run update.
+The module without JP2 jumper connect to the PC USB port and then run update.
 
 ![USBASP FW upgrade](images/usbasp-fw-upgrade.jpg)
 
@@ -80,7 +80,7 @@ From command line:
 
 screenshot
 
-Code::Blocks Tools / Configure tools / Add 
+IDE Code::Blocks click Tools / Configure tools / Add 
 
 	Name: Flash
 	Executable: avrdude
@@ -89,7 +89,7 @@ Code::Blocks Tools / Configure tools / Add
 
 screenshot
 
-Code::Blocks Tools / Configure tools / Add 
+IDE Code::Blocks click Tools / Configure tools / Add 
 
 	Name: Fuses
 	Executable: avrdude
